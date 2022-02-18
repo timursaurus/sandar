@@ -39,6 +39,3 @@ export const langs: Languages = {
   kk,
   'kk-latin': kk_latin
 }
-
-
-const take = (n: number) => (xs: string) => xs.slice(0,n);
