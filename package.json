@@ -32,5 +32,15 @@
     "eslint": "^8.9.0",
     "typescript": "^4.5.5",
     "unbuild": "^0.6.9"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timursaurus/sandar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/timursaurus/sandar/issues",
+    "email": "timursaurus@gmail.com"
+  },
+  "homepage": "https://github.com/timursaurus/sandar#readme"
 }

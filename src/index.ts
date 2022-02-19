@@ -1,3 +1,3 @@
 export * from './word'
 export * from './ordinal'
-export * from './sandar'
+export type { LangOptions, Options } from './types'
