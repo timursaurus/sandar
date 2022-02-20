@@ -36,7 +36,6 @@ Returns the textual ordinal representation of a given number.
  toOrdinal('789', 'kk-latin') //=> 'jetı jüz seksen toğyzınşı'
 
  toOrdinal('123456789101112131415') //=> 'жүз жыйырма үч секстиллион төрт жүз элүү алты квадриллион жети жүз сексен тогуз триллион жүз бир миллиард жүз он эки миллион жүз отуз бир миң төрт жүз он бешинчи'
- */
 ```
 
 ## Licence
