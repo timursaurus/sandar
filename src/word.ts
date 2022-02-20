@@ -29,7 +29,7 @@ export function toWord(number: string | number, lang: LangOptions = 'ky'): strin
   }
   function generate(): string {
     number = removeComma(number)
-    const triplets = toTriplets(Number(number).toString())
+    const triplets = toTriplets(number.toString())
     let words: string[] = []
     if (isNumberSafe(number) && isLangSupported(typeof lang === 'string' ? lang : lang.lang)) {
       triplets.forEach((word, index) => {
@@ -43,3 +43,4 @@ export function toWord(number: string | number, lang: LangOptions = 'ky'): strin
   }
   return (number < 0 ? `${language.Negative} ` : '') + generate()
 }
+
