@@ -1,6 +1,6 @@
 {
   "name": "sandar",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Kyrgyz / Kazakh numbers to words converter",
   "sideEffects": false,
   "main": "dist/index.cjs",
