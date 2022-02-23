@@ -1,6 +1,6 @@
-import { LangOptions } from "./types";
-import { isNumberSafe, toTriplets, langs, removeComma, setLanguage } from "./utils";
-import { toWord } from "./word";
+import { LangOptions } from './types'
+import { isNumberSafe, toTriplets, removeComma, setLanguage } from './utils'
+import { toWord } from './word'
 
 /**
  * Returns the textual ordinal representation of a given number.
@@ -16,13 +16,13 @@ export function toOrdinal(number: number | string, lang: LangOptions = 'ky'): st
   const language = setLanguage(lang)
   function parseHundreds(number: number) {
     let suffix = number % 10 ? language.OnesOrdinal[number % 10] : language.TensOrdinal[(number % 100) / 10]
-    return suffix = suffix ?? language.TripletsOrdinal[1], suffix
+    return (suffix = suffix ?? language.TripletsOrdinal[1]), suffix
   }
   function parseThousands(number: number | string) {
     const triplets = toTriplets(number.toString())
-    let thousands = 0
-    for (let triple of triplets) {
-      if (parseInt(triple) === 0) thousands += 1
+    const thousands = 0
+    for (const triple of triplets) {
+      if (parseInt(triple) === 0) thousands + 1
       else return thousands ? language.TripletsOrdinal[thousands + 1] : parseHundreds(Number(triple))
     }
   }

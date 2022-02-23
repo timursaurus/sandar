@@ -4,9 +4,7 @@ import { expect, it, describe } from 'vitest'
 import { toWord } from '../src/word'
 
 describe('Base Test', () => {
-  const tests = [
-    { input: '10', output: 'он' }
-  ]
+  const tests = [{ input: '10', output: 'он' }]
 
   for (let test of tests) {
     it(test.input, () => {

@@ -1,11 +1,11 @@
-import { LangOptions } from "./types";
-import { isNumberSafe, toTriplets, isLangSupported, removeComma, setLanguage } from "./utils";
+import { LangOptions } from './types'
+import { isNumberSafe, toTriplets, isLangSupported, removeComma, setLanguage } from './utils'
 
 /**
- * Returns the textual representation of a given number. 
+ * Returns the textual representation of a given number.
  * Passing number as `string` is recommended.
  * @param number Accepts 123... and "123..."
- * @param lang Accepts [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. Kyrgyz language is set as default if not specified. 
+ * @param lang Accepts [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. Kyrgyz language is set as default if not specified.
  * @example
  * toWord(123) //=> 'жүз жыйырма үч'
  * toWord(456, { lang: 'ky' }) //=> 'төрт жүз элүү алты'
@@ -23,14 +23,14 @@ export function toWord(number: string | number, lang: LangOptions = 'ky'): strin
     function parseHundreds(number: number): string {
       const hundreds = Math.floor(number / 100)
       const rem = number % 100 > 0 ? parseTens(number % 100) : ''
-      return hundreds > 1 ? rem ? `${language.Ones[hundreds]} ${language.Hundred} ${rem}` : `${language.Ones[hundreds]} ${language.Hundred}` : `${language.Hundred} ${rem}`
+      return hundreds > 1 ? (rem ? `${language.Ones[hundreds]} ${language.Hundred} ${rem}` : `${language.Ones[hundreds]} ${language.Hundred}`) : `${language.Hundred} ${rem}`
     }
     return number >= 100 ? parseHundreds(number) : parseTens(number)
   }
   function generate(): string {
     number = removeComma(number)
     const triplets = toTriplets(number.toString())
-    let words: string[] = []
+    const words: string[] = []
     if (isNumberSafe(number) && isLangSupported(lang)) {
       triplets.forEach((word, index) => {
         if (parseInt(word) !== 0) {
@@ -43,4 +43,3 @@ export function toWord(number: string | number, lang: LangOptions = 'ky'): strin
   }
   return (number < 0 ? `${language.Negative} ` : '') + generate()
 }
-

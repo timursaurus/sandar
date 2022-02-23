@@ -1,7 +1,7 @@
 //@ts-nocheck
 
 import { expect, it, describe } from 'vitest'
-import { toWord, } from '../src/word'
+import { toWord } from '../src/word'
 import { toOrdinal } from '../src/ordinal'
 
 describe('Base Cardinal', () => {
@@ -19,7 +19,6 @@ describe('Base Cardinal', () => {
       expect(toWord(test.input, test.lang ?? test.lang)).eq(test.output)
     })
   }
-
 })
 
 describe('Base Ordinal', () => {
@@ -27,7 +26,6 @@ describe('Base Ordinal', () => {
     { input: '10', output: 'онунчу' },
     { input: '11', output: 'он биринчи', lang: 'ky' },
     { input: 11, output: 'on bırınşı', lang: 'kk-latin' },
-
   ]
 
   for (let test of tests) {

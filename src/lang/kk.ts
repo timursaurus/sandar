@@ -1,4 +1,4 @@
-import { Language } from "../types"
+import { Language } from '../types'
 export default {
   Zero: 'нөл',
   Hundred: 'жүз',
@@ -71,7 +71,5 @@ export default {
     7: 'ыншы',
     8: 'ыншы',
     9: 'ыншы',
-  }
+  },
 } as Language
-
-

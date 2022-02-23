@@ -1,4 +1,4 @@
-import { Language } from "../types"
+import { Language } from '../types'
 export default {
   Zero: 'nöl',
   Hundred: 'jüz',
@@ -19,7 +19,7 @@ export default {
     1: 'on',
     2: 'jiyrma',
     3: 'otyz',
-    4: 'qyryq', 
+    4: 'qyryq',
     5: 'elu',
     6: 'alpys',
     7: 'jetpıs',
@@ -76,9 +76,9 @@ export default {
   OnesAblative: {
     1: 'ден',
     2: 'ден',
-    3: 'төн', 
-    4: 'төн', 
-    5: 'тен', 
+    3: 'төн',
+    4: 'төн',
+    5: 'тен',
     6: 'дан',
     7: 'ден',
     8: 'ден',
@@ -89,7 +89,7 @@ export default {
     2: 'дан',
     3: 'дан',
     4: 'тан',
-    5: 'дөн', 
+    5: 'дөн',
     6: 'тан',
     7: 'тен',
     8: 'ден',
@@ -98,9 +98,9 @@ export default {
   TripletsAblative: {
     1: 'дөн',
     2: 'ден',
-    3: 'дон', 
-    4: 'дан', 
-    5: 'дон', 
+    3: 'дон',
+    4: 'дан',
+    5: 'дон',
     6: 'дон',
     7: 'дон',
     8: 'дон',

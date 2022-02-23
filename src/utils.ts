@@ -1,5 +1,5 @@
-import { kk, kk_latin, ky } from "./lang"
-import { LangOptions, Languages } from "./types"
+import { kk, kk_latin, ky } from './lang'
+import { LangOptions, Languages } from './types'
 
 export function isNumberSafe(number: number | string): boolean {
   if (typeof number === 'number' && !isFinite(number)) {
@@ -11,7 +11,7 @@ export function isNumberSafe(number: number | string): boolean {
   if (number.toString().length > 21) {
     throw new RangeError('Overflow: given input is more than 21 digits.')
   }
-  if (typeof number === 'number' && number >= Number.MAX_SAFE_INTEGER || number <= Number.MIN_SAFE_INTEGER) {
+  if ((typeof number === 'number' && number >= Number.MAX_SAFE_INTEGER) || number <= Number.MIN_SAFE_INTEGER) {
     console.log(`Warning: Precision may be lost for the given input of ${number}. Passing numbers as string is recommended.`)
   }
   return true
@@ -25,35 +25,14 @@ export function removeComma(number: string | number) {
 }
 
 export function toTriplets(number: string): string[] {
-  let numberArr = number.match(/\d{1,3}(?=(\d{3})*$)/g)?.reverse() || []
-  return numberArr
+  return number.match(/\d{1,3}(?=(\d{3})*$)/g)?.reverse() || []
 }
-
-// export function isLangSupported(lang: LangOptions) {
-//   if (!lang) lang = 'ky'
-//   if (typeof lang === 'string') {
-//     if (lang.toLowerCase() in langs) {
-//       return true
-//     }
-//   }
-//   if (typeof lang === 'object') {
-//     if (!lang.lang) {
-//       lang.lang = 'ky'
-//     }
-//     if (lang.lang.toLowerCase() in langs) {
-//       return true
-//     }
-//   }
-//   else throw new TypeError(`"${lang}" language is not supported.`)
-// }
-
 
 export function isLangSupported(lang: LangOptions) {
-  if (lang || (lang = 'ky'), typeof lang === 'string' && lang.toLowerCase() in langs) return true;
-  if (typeof lang === 'object' && (lang.lang || (lang.lang = 'ky') && lang.lang.toLowerCase() in langs)) return true
+  if ((lang || (lang = 'ky'), typeof lang === 'string' && lang.toLowerCase() in langs)) return true
+  if (typeof lang === 'object' && (lang.lang || ((lang.lang = 'ky') && lang.lang.toLowerCase() in langs))) return true
   throw new TypeError(`"${lang}" language is not supported.`)
 }
-
 
 export function setLanguage(lang: LangOptions) {
   if (!lang) {
@@ -66,5 +45,5 @@ export function setLanguage(lang: LangOptions) {
 export const langs: Languages = {
   ky,
   kk,
-  'kk-latin': kk_latin
+  'kk-latin': kk_latin,
 }

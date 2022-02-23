@@ -1,10 +1,10 @@
-import { toWord, toOrdinal } from ".";
-import { LangOptions } from "./types";
-import { isLangSupported } from "./utils";
+import { toWord, toOrdinal } from '.'
+import { LangOptions } from './types'
+import { isLangSupported } from './utils'
 
 export class Sandar {
   private language: LangOptions
-  /** 
+  /**
    * Creates an instance of Sandar. All methods will use specified language.
    * @param language Accepts [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. Kyrgyz `ky` language is set as default if not specified.
    * @example
@@ -12,7 +12,8 @@ export class Sandar {
    * san.toWord(123) //=> 'jüz jiyrma üş'
    */
   constructor(language: LangOptions = 'ky') {
-    if (isLangSupported(typeof language === 'string' ? language : language.lang)) {}
+    if (isLangSupported(typeof language === 'string' ? language : language.lang)) {
+    }
     this.language = typeof language === 'string' ? language : language.lang
   }
   /**
