@@ -18,6 +18,7 @@
   "scripts": {
     "build": "unbuild",
     "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
+    "test": "vitest run",
     "prerelease": "npm run build",
     "release": "bumpp --commit --push --tag && npm publish"
   },
@@ -34,7 +35,8 @@
     "bumpp": "^7.1.1",
     "eslint": "^8.9.0",
     "typescript": "^4.5.5",
-    "unbuild": "^0.6.9"
+    "unbuild": "^0.6.9",
+    "vitest": "^0.5.3"
   },
   "repository": {
     "type": "git",

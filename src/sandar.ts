@@ -35,7 +35,7 @@ export class Sandar {
   }
   /** You may set a new language */
   set lang(lang: LangOptions) {
-    if (isLangSupported(lang.toString())) {
+    if (isLangSupported(lang)) {
       this.language = lang
     }
   }

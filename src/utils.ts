@@ -1,12 +1,12 @@
 import { kk, kk_latin, ky } from "./lang"
-import { Languages } from "./types"
+import { LangOptions, Languages } from "./types"
 
 export function isNumberSafe(number: number | string): boolean {
   if (typeof number === 'number' && !isFinite(number)) {
     throw new TypeError(`Given an infinite or too large number input`)
   }
   if (isNaN(Number(number))) {
-    throw new TypeError(`Given input of "${number}" is not a number. `)
+    throw new TypeError(`Given input of "${number}" is not lang number. `)
   }
   if (number.toString().length > 21) {
     throw new RangeError('Overflow: given input is more than 21 digits.')
@@ -29,9 +29,38 @@ export function toTriplets(number: string): string[] {
   return numberArr
 }
 
-export function isLangSupported(lang: string) {
-  if (lang = lang.toLowerCase(), lang in langs) return true
-  else throw new TypeError(`"${lang}" language is not supported.`)
+// export function isLangSupported(lang: LangOptions) {
+//   if (!lang) lang = 'ky'
+//   if (typeof lang === 'string') {
+//     if (lang.toLowerCase() in langs) {
+//       return true
+//     }
+//   }
+//   if (typeof lang === 'object') {
+//     if (!lang.lang) {
+//       lang.lang = 'ky'
+//     }
+//     if (lang.lang.toLowerCase() in langs) {
+//       return true
+//     }
+//   }
+//   else throw new TypeError(`"${lang}" language is not supported.`)
+// }
+
+
+export function isLangSupported(lang: LangOptions) {
+  if (lang || (lang = 'ky'), typeof lang === 'string' && lang.toLowerCase() in langs) return true;
+  if (typeof lang === 'object' && (lang.lang || (lang.lang = 'ky') && lang.lang.toLowerCase() in langs)) return true
+  throw new TypeError(`"${lang}" language is not supported.`)
+}
+
+
+export function setLanguage(lang: LangOptions) {
+  if (!lang) {
+    lang = 'ky'
+  }
+  const language = typeof lang === 'string' ? langs[lang.toLowerCase()] : langs[lang.lang.toLowerCase()]
+  return language
 }
 
 export const langs: Languages = {

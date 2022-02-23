@@ -1,5 +1,5 @@
 import { LangOptions } from "./types";
-import { isNumberSafe, toTriplets, langs, removeComma } from "./utils";
+import { isNumberSafe, toTriplets, langs, removeComma, setLanguage } from "./utils";
 import { toWord } from "./word";
 
 /**
@@ -13,7 +13,7 @@ import { toWord } from "./word";
  * toOrdinal('789', 'kk-latin') //=> 'jetı jüz seksen toğyzınşı'
  */
 export function toOrdinal(number: number | string, lang: LangOptions = 'ky'): string {
-  const language = typeof lang === 'string' ? langs[lang.toLowerCase()] : langs[lang.lang.toLowerCase()]
+  const language = setLanguage(lang)
   function parseHundreds(number: number) {
     let suffix = number % 10 ? language.OnesOrdinal[number % 10] : language.TensOrdinal[(number % 100) / 10]
     return suffix = suffix ?? language.TripletsOrdinal[1], suffix

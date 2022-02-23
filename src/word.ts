@@ -1,5 +1,5 @@
 import { LangOptions } from "./types";
-import { isNumberSafe, toTriplets, langs, isLangSupported, removeComma } from "./utils";
+import { isNumberSafe, toTriplets, isLangSupported, removeComma, setLanguage } from "./utils";
 
 /**
  * Returns the textual representation of a given number. 
@@ -12,7 +12,7 @@ import { isNumberSafe, toTriplets, langs, isLangSupported, removeComma } from ".
  * toWord('789', 'kk-latin') //=> 'jetı jüz seksen toğyz'
  */
 export function toWord(number: string | number, lang: LangOptions = 'ky'): string {
-  const language = typeof lang === 'string' ? langs[lang.toLowerCase()] : langs[lang.lang.toLowerCase()]
+  const language = setLanguage(lang)
   if (Math.abs(Number(number)) === 0) return language.Zero
   function convert(number: number): string {
     function parseTens(number: number): string {
@@ -31,7 +31,7 @@ export function toWord(number: string | number, lang: LangOptions = 'ky'): strin
     number = removeComma(number)
     const triplets = toTriplets(number.toString())
     let words: string[] = []
-    if (isNumberSafe(number) && isLangSupported(typeof lang === 'string' ? lang : lang.lang)) {
+    if (isNumberSafe(number) && isLangSupported(lang)) {
       triplets.forEach((word, index) => {
         if (parseInt(word) !== 0) {
           word = convert(parseInt(word)).trim()
