@@ -2,6 +2,7 @@ import { toWord, toOrdinal } from '.'
 import { LangOptions } from './types'
 import { isLangSupported } from './utils'
 
+
 export class Sandar {
   private language: LangOptions
   /**

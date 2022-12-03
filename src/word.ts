@@ -13,7 +13,7 @@ import { isNumberSafe, toTriplets, isLangSupported, removeComma, setLanguage } f
  */
 export function toWord(number: string | number, lang: LangOptions = 'ky'): string {
   const language = setLanguage(lang)
-  if (Math.abs(Number(number)) === 0) return language.Zero
+  if (Math.abs(Number(number)) === 0) { return language.Zero }
   function convert(number: number): string {
     function parseTens(number: number): string {
       const tens = Math.floor(number / 10)
@@ -35,7 +35,7 @@ export function toWord(number: string | number, lang: LangOptions = 'ky'): strin
       triplets.forEach((word, index) => {
         if (parseInt(word) !== 0) {
           word = convert(parseInt(word)).trim()
-          if (word) words.push(`${word} ${language.Triplets[index + 1]}`)
+          if (word) { words.push(`${word} ${language.Triplets[index + 1]}`) }
         }
       })
     }

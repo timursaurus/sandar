@@ -3,7 +3,7 @@ import { LangOptions, Languages } from './types'
 
 export function isNumberSafe(number: number | string): boolean {
   if (typeof number === 'number' && !isFinite(number)) {
-    throw new TypeError(`Given an infinite or too large number input`)
+    throw new TypeError("Given an infinite or too large number input")
   }
   if (isNaN(Number(number))) {
     throw new TypeError(`Given input of "${number}" is not lang number. `)
@@ -29,8 +29,8 @@ export function toTriplets(number: string): string[] {
 }
 
 export function isLangSupported(lang: LangOptions) {
-  if ((lang || (lang = 'ky'), typeof lang === 'string' && lang.toLowerCase() in langs)) return true
-  if (typeof lang === 'object' && (lang.lang || ((lang.lang = 'ky') && lang.lang.toLowerCase() in langs))) return true
+  if ((lang || (lang = 'ky'), typeof lang === 'string' && lang.toLowerCase() in langs)) { return true }
+  if (typeof lang === 'object' && (lang.lang || ((lang.lang = 'ky') && lang.lang.toLowerCase() in langs))) { return true }
   throw new TypeError(`"${lang}" language is not supported.`)
 }
 

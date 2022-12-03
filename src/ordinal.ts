@@ -22,14 +22,14 @@ export function toOrdinal(number: number | string, lang: LangOptions = 'ky'): st
     const triplets = toTriplets(number.toString())
     const thousands = 0
     for (const triple of triplets) {
-      if (parseInt(triple) === 0) thousands + 1
-      else return thousands ? language.TripletsOrdinal[thousands + 1] : parseHundreds(Number(triple))
+      if (parseInt(triple) === 0) { thousands + 1 }
+      else { return thousands ? language.TripletsOrdinal[thousands + 1] : parseHundreds(Number(triple)) }
     }
   }
   function generateSuffix(number: number | string) {
     number = removeComma(number)
     if (isNumberSafe(number)) {
-      if (Math.abs(Number(number)) === 0) return language.TripletsOrdinal[0]
+      if (Math.abs(Number(number)) === 0) { return language.TripletsOrdinal[0] }
       return 1e3 < number ? parseThousands(Number(number)) : parseHundreds(Number(number))
     }
   }
